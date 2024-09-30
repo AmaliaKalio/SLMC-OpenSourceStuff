@@ -29,6 +29,37 @@ dataUpdate()
     returnMsg+="\nTheoretical Region Script Speed: "+(string)(time*100)+"%";
     returnMsg+="\nAgents in region: "+(string)llGetRegionAgentCount();
     returnMsg+="\nRegion flags:";
+    integer flags = llGetRegionFlags();
+    if (flags & REGION_FLAG_ALLOW_DAMAGE)
+    {
+        returnMsg += "\n--Damage: ON";
+    } else {
+         returnMsg += "\n--Damage: OFF";
+    }
+    if (flags & REGION_FLAG_DISABLE_COLLISIONS)
+    {
+        returnMsg += "\n--Collisions: OFF";
+    } else {
+         returnMsg += "\n--Collisions: ON";
+    }
+    if (flags & REGION_FLAG_DISABLE_PHYSICS)
+    {
+        returnMsg += "\n--Physics: OFF";
+    } else {
+         returnMsg += "\n--Physics: ON";
+    }
+    if (flags & REGION_FLAG_BLOCK_FLY)
+    {
+        returnMsg += "\n--Flight: OFF";
+    } else {
+         returnMsg += "\n--Flight: ON";
+    }
+    if (flags & REGION_FLAG_RESTRICT_PUSHOBJECT)
+    {
+        returnMsg += "\n--Push: OFF";
+    } else {
+         returnMsg += "\n--Push: ON";
+    }
     llSetText(returnMsg,<1,1,1>,1);
 }
 default
