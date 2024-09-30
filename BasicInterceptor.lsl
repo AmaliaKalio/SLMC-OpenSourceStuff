@@ -51,6 +51,7 @@ default
     }
     timer()
     {
+        ammo=50; //Reset ammo count
         llSetTimerEvent(0); //Stop the timer
         llSensorRepeat("","",SCRIPTED|ACTIVE,10,PI,0.1); //Reinitiate the sensor. Copy of line from on_rez
     }
