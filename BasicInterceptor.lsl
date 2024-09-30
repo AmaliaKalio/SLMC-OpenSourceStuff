@@ -1,5 +1,20 @@
 integer ammo = 50;
 
+/* Uncomment this if you want a size detection
+list box;
+float size = 0;
+
+float longestLength(vector boundingBox)
+{
+    temp = boundingBox.x;
+    if(boundingBox.y>temp)
+        temp=boundingBox.y;
+    if (boundingBox.z>temp)
+        temp = boundingBox.z;
+    return temp;
+}
+*/
+
 key targ;
 vector targPos;
 vector speed;
@@ -29,7 +44,12 @@ default
             if(a<0) return; //This is here because of the logic in the next line
             if(llDetectedType(a)&PASSIVE || llSameGroup(llDetectedKey(a))){a--; jump back;} //If detected object has the same group, or is considered passive, jump back up and use the next item in the list
             targPos = llDetectedPos(a); //Get the object's position
+            /* Uncomment this if you want a size detection
+            box = llGetBoundingBox(llDetectedKey(a));
+            size = longestLength(llList2Vector(box,1)-llList2Vector(box,0));
+            */
             speed = llDetectedVel(a); //Get the object's velocity
+            //if(llVecMag(speed)<150 && size<=1) //Alternate IF statement, to also check if the target object is <1m in all dimensions
             if(llVecMag(speed)<150) //If it's going under 150, we can PROBABLY assume this isn't a bullet
             {
                 PointChildAtTarget( llDetectedPos(a), < 1, 0, 0 > ); //Calculate vector for bullet. X=1, because the bullet is scaled over X.
