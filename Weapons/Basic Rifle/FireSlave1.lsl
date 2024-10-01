@@ -81,7 +81,7 @@ default{
     {
         if(c&CHANGED_OWNER) //New owner? Reset
             llResetScript();
-        else if(c & CHANGED_COLOR && llList2Vector(llGetLinkPrimitiveParams(LINK_ROOT,[PRIM_COLOR,ALL_SIDES]),0)==<1,0,0>){ //Prim color changed. <1,0,0> for slave 1, <0,1,0> for slave 2, <0,1,1> for slave 3, <1,1,0> for slave 4 if absolutely necessary
+        else if(c & CHANGED_COLOR && llList2Vector(llGetLinkPrimitiveParams(LINK_ROOT,[PRIM_COLOR,ALL_SIDES]),0)==<1,0,0>){ //Prim color changed. <1,0,0> for slave 1, <0,1,0> for slave 2, <0,0,1> for slave 3, <1,1,0> for slave 4 if absolutely necessary
             llSetTimerEvent(0); //Stop reducing spread
             rot = llGetRootRotation(); //Get our current rotation. RootRot is more reliable than GetRot.
             rezRot=llEuler2Rot(<0,-PI_BY_TWO,0>); //Override for bullets scaled over Z rather than X. Set this to rezRot=rot if your bullet scales over X.
