@@ -91,16 +91,21 @@ default{
             {
                 //llRezAtRoot(round,llGetRootPosition() + (eye *rot), llRot2Fwd(rot)*speed +  (<0.0,llFrand(tempSpread)-llFrand(tempSpread),llFrand(tempSpread)-llFrand(tempSpread)> *rot), rezRot*rot, rez);
                llRezObjectWithParams(round,[REZ_PARAM,rez,REZ_POS,llGetRootPosition() + (eye *rot),0,1,REZ_ROT,rezRot*rot,0,REZ_VEL,llRot2Fwd(rot)*speed +  (<0.0,llFrand(tempSpread)-llFrand(tempSpread),llFrand(tempSpread)-llFrand(tempSpread)> *rot),0,0,REZ_FLAGS,0|REZ_FLAG_TEMP|REZ_FLAG_PHYSICAL|REZ_FLAG_DIE_ON_COLLIDE|REZ_FLAG_DIE_ON_NOENTRY|REZ_FLAG_NO_COLLIDE_OWNER|REZ_FLAG_NO_COLLIDE_FAMILY|REZ_FLAG_BLOCK_GRAB_OBJECT,REZ_LOCK_AXES,<1,1,1>,REZ_DAMAGE,100]); 
-
+                //Use the following line instead if bullet is scaled over x
+                //llRezObjectWithParams(round,[REZ_PARAM,rez,REZ_POS,llGetRootPosition() + (eye *rot),0,1,REZ_ROT,rezRot*rot,0,REZ_VEL,llRot2Fwd(rot)*speed +  (<0.0,llFrand(tempSpread)-llFrand(tempSpread),llFrand(tempSpread)-llFrand(tempSpread)> *rot),0,0,REZ_FLAGS,0|REZ_FLAG_TEMP|REZ_FLAG_PHYSICAL|REZ_FLAG_DIE_ON_COLLIDE|REZ_FLAG_DIE_ON_NOENTRY|REZ_FLAG_NO_COLLIDE_OWNER|REZ_FLAG_NO_COLLIDE_FAMILY|REZ_FLAG_BLOCK_GRAB_OBJECT,REZ_LOCK_AXES,<1,1,1>,REZ_DAMAGE,100]); 
             }
             else if(posType ==1) //CamPos
             {
                 eye.z=0;
                 llRezAtRoot(round,llGetCameraPos() + (eye *rot), llRot2Fwd(rot)*speed +  (<0.0,llFrand(tempSpread)-llFrand(tempSpread),llFrand(tempSpread)-llFrand(tempSpread)> *rot), rezRot*rot, rez);
+                //Use the following line instead if bullet is scaled over x
+                //llRezAtRoot(round,llGetCameraPos() + (eye *rot), llRot2Fwd(rot)*speed +  (<0.0,llFrand(tempSpread)-llFrand(tempSpread),llFrand(tempSpread)-llFrand(tempSpread)> *rot), rezRot, rez);
             }
             else if(posType ==2) //VelPos
             {
                 llRezAtRoot(round,llGetRootPosition() + (eye *rot) - (llGetVel()/8), llRot2Fwd(rot)*speed +  (<0.0,llFrand(tempSpread)-llFrand(tempSpread),llFrand(tempSpread)-llFrand(tempSpread)> *rot),rezRot*rot, rez);
+                //Use the following line instead if bullet is scaled over x
+                //llRezAtRoot(round,llGetRootPosition() + (eye *rot) - (llGetVel()/8), llRot2Fwd(rot)*speed +  (<0.0,llFrand(tempSpread)-llFrand(tempSpread),llFrand(tempSpread)-llFrand(tempSpread)> *rot),rezRot, rez);
             }
             if(spread1 < maxSpread) //If we're not yet at the maximum spread...
             {
