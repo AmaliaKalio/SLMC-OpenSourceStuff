@@ -1,5 +1,5 @@
 //DO NOT use this alongside BasicAnims
-//Expects 12 animation files for left hand, and 12 animation files for right hand, with a suffix ran1ge of 0 - 11. IE: "Minnow Aim 0", "Minnow Aim 11". Designed for dual-weild SMGs that do not fire at the same time.
+//Expects 12 animation files for left hand, and 12 animation files for right hand, with a suffix range of 0 - 11. IE: "Minnow Aim 0", "Minnow Aim 11". Designed for dual-weild SMGs that do not fire at the same time.
 //This file is SPECIFICALLY for if you have anims to show the user looking up/down at different angles
 integer holster = TRUE;
 integer noflip =1;
